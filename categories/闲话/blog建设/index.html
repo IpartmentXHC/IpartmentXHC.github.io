@@ -9,7 +9,7 @@
     
     <title>
         
-            关于 |
+            分类: blog建设 |
         
         XHC的实记
     </title>
@@ -21,7 +21,7 @@
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
     KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"};
-    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#1772b4","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.5"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#1772b4","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
     KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
   </script>
 <meta name="generator" content="Hexo 6.2.0"></head>
@@ -74,6 +74,14 @@
                             </a>
                         </li>
                     
+                        <li class="menu-item">
+                            <a class="active"
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
                     
                         <li class="menu-item search search-popup-trigger">
                             <i class="fas fa-search"></i>
@@ -105,6 +113,11 @@
                        href="/archives">归档</a>
                 </li>
             
+                <li class="drawer-menu-item flex-center">
+                    <a class="active"
+                       href="/categories">分类</a>
+                </li>
+            
         </ul>
     </div>
 
@@ -121,18 +134,42 @@
 
                 
                     <div class="fade-in-down-animation">
-    <div class="page-template-container">
-        
-        
-        <div class="page-template-content markdown-body">
+    <div class="category-container">
+        <div class="category-name">
+            <i class="fas fa-folder"></i>&nbsp;blog建设
+        </div>
+        <div class="category-post-list">
             
-                <p><del>#about me</del></p>
+<div class="archive-list-container">
+    
+        <section class="archive-item">
+            <div class="archive-item-header">
+                <span class="archive-year">2022</span>
+                <span class="archive-year-post-count">[1]</span>
+            </div>
+            <ul class="article-list">
+                
+                    <li class="article-item">
+                        <a class="article-title"
+                           href="/2022/07/11/hello/"
+                        >hello</a>
+                        <span class="article-date">07-11</span>
+                    </li>
+                
+            </ul>
+        </section>
+    
+</div>
 
-            
         </div>
-        <div class="page-template-comments">
-            
-        </div>
+    </div>
+    <div class="category-paginator">
+        <div class="paginator">
+    
+
+    
+</div>
+
     </div>
 </div>
 
@@ -277,8 +314,6 @@
     <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/code-copy.js"></script>
 
 
-
-    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/lazyload.js"></script>
 
 
 <div class="post-scripts">
