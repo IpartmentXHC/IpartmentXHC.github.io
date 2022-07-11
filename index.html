@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="keywords" content="逆向工程 ciscn_wp">
-    <meta name="description" content="逆向和杂项双修">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
     <meta name="author" content="萧禾材">
     
     <title>
@@ -15,7 +15,9 @@
 <link rel="stylesheet" href="/css/style.css">
 
     <link rel="shortcut icon" href="/images/logo.svg">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/css/font-awesome.min.css">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
     KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"};
@@ -163,6 +165,74 @@
                 
                     <div class="home-content-container fade-in-down-animation">
     <ul class="home-article-list">
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2022/07/11/%E4%BD%A0%E7%AB%9F%E7%84%B6%E8%B5%B6%E6%88%91%E8%B5%B0/">
+                        你竟然赶我走
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        #只有一张JGP图片 猜是图片隐写
+用010打开
+图片结尾藏了flag
+
+因为JPG这种图片文件读到 FF D9（文件尾）就不会在读了 因此可以在文件尾添加东西不影响图片的显示
+
+
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Mon Jul 11 2022 18:05:41 GMT+0800">2022-07-11</span></span>
+        
+        
+    </div>
+
+    <a href="/2022/07/11/%E4%BD%A0%E7%AB%9F%E7%84%B6%E8%B5%B6%E6%88%91%E8%B5%B0/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2022/07/11/%E4%BA%8C%E7%BB%B4%E7%A0%81/">
+                        二维码
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        #解压打开发现是张二维码图片 用QR Research 探查一下
+
+没有什么东西
+打开kali 用binwalk 探查一下 藏了一个压缩包 
+用010 打开观察加密信息 不是伪加密 
+试了试二维码的内容secret is here
+也不对 那只能爆破...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Mon Jul 11 2022 17:55:05 GMT+0800">2022-07-11</span></span>
+        
+        
+    </div>
+
+    <a href="/2022/07/11/%E4%BA%8C%E7%BB%B4%E7%A0%81/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
         
             <li class="home-article-item">
 
@@ -373,14 +443,28 @@
 
 
 
-<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/dark-light-toggle.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
 
 
-    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/local-search.js"></script>
+
+    
+<script src="/js/local-search.js"></script>
 
 
 
-    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/code-copy.js"></script>
+
+    
+<script src="/js/code-copy.js"></script>
+
 
 
 
