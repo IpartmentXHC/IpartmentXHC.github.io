@@ -9,7 +9,7 @@
     
     <title>
         
-            typora-picgo-github三者联动实现自动上传图片 |
+            wireshark |
         
         XHC的实记
     </title>
@@ -137,7 +137,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">typora-picgo-github三者联动实现自动上传图片</span>
+            <span class="title-hover-animation">wireshark</span>
         </div>
 
         
@@ -156,8 +156,8 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2022-07-12 10:23:48</span>
-        <span class="mobile">2022-07-12 10:23</span>
+        <span class="pc">2022-07-12 13:21:17</span>
+        <span class="mobile">2022-07-12 13:21</span>
     </span>
     
         <span class="article-categories article-meta-item">
@@ -165,11 +165,15 @@
             <ul>
                 
                     <li>
-                        <a href="/categories/%E9%97%B2%E8%AF%9D/">闲话</a>&nbsp;
+                        <a href="/categories/%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/">刷题记录</a>&nbsp;
                     </li>
                 
                     <li>
-                        &gt; <a href="/categories/%E9%97%B2%E8%AF%9D/blog%E5%BB%BA%E8%AE%BE/">blog建设</a>&nbsp;
+                        &gt; <a href="/categories/%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/BUUCTF/">BUUCTF</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        &gt; <a href="/categories/%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/BUUCTF/misc/">misc</a>&nbsp;
                     </li>
                 
             </ul>
@@ -180,7 +184,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>275 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>57 字</span>
         </span>
     
     
@@ -201,129 +205,47 @@
         
 
         <div class="article-content markdown-body">
-            <h1 id=""><a href="#" class="headerlink" title=""></a></h1><h2 id="利用github存储代码和图片-typora编写blog-picgo上传图片"><a href="#利用github存储代码和图片-typora编写blog-picgo上传图片" class="headerlink" title="利用github存储代码和图片 typora编写blog picgo上传图片"></a>利用github存储代码和图片 typora编写blog picgo上传图片</h2><p>终于经过俩天的踩坑 终于建立一套方便的博客上传系统</p>
-<h2 id="一、GitHub图床仓库的建立和配置"><a href="#一、GitHub图床仓库的建立和配置" class="headerlink" title="一、GitHub图床仓库的建立和配置"></a>一、GitHub图床仓库的建立和配置</h2><h3 id="1、创建GitHub图床仓库"><a href="#1、创建GitHub图床仓库" class="headerlink" title="1、创建GitHub图床仓库"></a>1、创建GitHub图床仓库</h3><ul>
-<li><p>创建GitHub账号 不会的话 上网搜 教程很多</p>
-</li>
-<li><p>新建GitHub仓库</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202207121056553.png"
-                      alt="image-20220712105642531"
-                ></p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202207121059240.png"
-                      alt="image-20220712105953181"
-                ></p>
-<h3 id="2、获取GitHub的token"><a href="#2、获取GitHub的token" class="headerlink" title="2、获取GitHub的token"></a>2、获取GitHub的token</h3><ul>
-<li><p>点击头像进入settings</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202207121103053.png"
-                      alt="image-20220712110356033"
-                ></p>
-<ul>
-<li><p>进入开发者选项</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202207121105973.png"
-                      alt="image-20220712110504938"
-                ></p>
-<ul>
-<li><p>生成新的token</p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202207121106614.png"
-                      alt="image-20220712110603579"
-                ></p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202207121109653.png"
-                      alt="image-20220712110922603"
-                ></p>
-<ul>
-<li>注意保存token 它只会出现一次 错过了只能重新生成</li>
-</ul>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202207121111043.png"
-                      alt="image-20220712111143010"
-                ></p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="二、PicGo的安装和配置"><a href="#二、PicGo的安装和配置" class="headerlink" title="二、PicGo的安装和配置"></a>二、PicGo的安装和配置</h2><h3 id="1、PicGo的下载"><a href="#1、PicGo的下载" class="headerlink" title="1、PicGo的下载"></a>1、PicGo的下载</h3><p>进入PicGo的官网下载</p>
+            <h1 id=""><a href="#" class="headerlink" title=""></a></h1><p>写这题需要<strong>wireshark</strong>工具</p>
 <blockquote>
-<p><a class="link"   target="_blank" rel="noopener" href="https://github.com/Molunerfinn/PicGo/releases" >https://github.com/Molunerfinn/PicGo/releases<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.wireshark.org/" >Wireshark · Go Deep.<i class="fas fa-external-link-alt"></i></a></p>
 </blockquote>
+<p>用wireshark打开 抓取POST的包</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202207121043513.png"
-                      alt="image-20220712104353448"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202207121335186.png"
+                      alt="image-20220712133544152"
                 ></p>
-<h3 id="2、PicGo的配置"><a href="#2、PicGo的配置" class="headerlink" title="2、PicGo的配置"></a>2、PicGo的配置</h3><ul>
-<li><p>进入图床设置 选择GitHub 如图填入信息</p>
-</li>
-<li><p>设定仓库名 填写 <strong>用户名</strong>&#x2F;<strong>仓库名</strong></p>
-</li>
-<li><p>分支 默认<strong>master</strong></p>
-</li>
-<li><p>设定token 填入刚刚保存的<strong>token</strong></p>
-</li>
-<li><p>后面两项可以暂时不填</p>
-</li>
-<li><p><strong>点击确定</strong></p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202207121046646.png"
-                      alt="image-20220712104615611"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202207121336634.png"
+                      alt="image-20220712133640608"
                 ></p>
-</li>
-<li><p>进入picgo设置 建议打开时间戳重命名</p>
+<p>找到包后 右键追踪http流</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202207121052041.png"
-                      alt="image-20220712105232010"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202207121338860.png"
+                      alt="image-20220712133812817"
                 ></p>
-</li>
-</ul>
-<h2 id="三、typora的设置"><a href="#三、typora的设置" class="headerlink" title="三、typora的设置"></a>三、typora的设置</h2><h3 id="1、下载typora"><a href="#1、下载typora" class="headerlink" title="1、下载typora"></a>1、下载typora</h3><blockquote>
-<p><a class="link"   target="_blank" rel="noopener" href="https://typoraio.cn/" >Typora 官方中文站 (typoraio.cn)<i class="fas fa-external-link-alt"></i></a></p>
+<p>因为题目要求我们找密码 </p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202207121339390.png"
+                      alt="image-20220712133916360"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202207121339902.png"
+                      alt="image-20220712133936872"
+                ></p>
+<p>直接搜索 password 或者 眼力好一眼看见</p>
+<blockquote>
+<p>flag{ffb7567a1d4f4abdffdb54e022f8facd}</p>
 </blockquote>
-<h3 id="2、typora的相关设置"><a href="#2、typora的相关设置" class="headerlink" title="2、typora的相关设置"></a>2、typora的相关设置</h3><ul>
-<li>点击文件进入偏好设置</li>
-</ul>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202207121119649.png"
-                      alt="image-20220712111902610"
-                ></p>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202207121119408.png"
-                      alt="image-20220712111953371"
-                ></p>
-<ul>
-<li>关联成功后即可开始使用</li>
-</ul>
 
         </div>
 
@@ -331,11 +253,11 @@
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li>本文标题：typora-picgo-github三者联动实现自动上传图片</li>
+        <li>本文标题：wireshark</li>
         <li>本文作者：萧禾材</li>
-        <li>创建时间：2022-07-12 10:23:48</li>
+        <li>创建时间：2022-07-12 13:21:17</li>
         <li>
-            本文链接：https://keep.xpoet.cn/2022/07/12/typora-picgo-github三者联动实现自动上传/
+            本文链接：https://keep.xpoet.cn/2022/07/12/wireshark/
         </li>
         <li>
             版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -354,13 +276,13 @@
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2022/07/12/N%E7%A7%8D%E6%96%B9%E6%B3%95%E8%A7%A3%E5%86%B3/"
+                           href="/2022/07/12/LSB/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">N种方法解决</span>
+                                <span class="post-nav-title-item">LSB</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                         </a>
@@ -370,10 +292,10 @@
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/07/11/%E4%BD%A0%E7%AB%9F%E7%84%B6%E8%B5%B6%E6%88%91%E8%B5%B0/"
+                           href="/2022/07/12/%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84%E7%A7%98%E5%AF%86/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">你竟然赶我走</span>
+                                <span class="post-nav-title-item">文件中的秘密</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -499,7 +421,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A9%E7%94%A8github%E5%AD%98%E5%82%A8%E4%BB%A3%E7%A0%81%E5%92%8C%E5%9B%BE%E7%89%87-typora%E7%BC%96%E5%86%99blog-picgo%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87"><span class="nav-text">利用github存储代码和图片 typora编写blog picgo上传图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81GitHub%E5%9B%BE%E5%BA%8A%E4%BB%93%E5%BA%93%E7%9A%84%E5%BB%BA%E7%AB%8B%E5%92%8C%E9%85%8D%E7%BD%AE"><span class="nav-text">一、GitHub图床仓库的建立和配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E5%88%9B%E5%BB%BAGitHub%E5%9B%BE%E5%BA%8A%E4%BB%93%E5%BA%93"><span class="nav-text">1、创建GitHub图床仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E8%8E%B7%E5%8F%96GitHub%E7%9A%84token"><span class="nav-text">2、获取GitHub的token</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81PicGo%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE"><span class="nav-text">二、PicGo的安装和配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81PicGo%E7%9A%84%E4%B8%8B%E8%BD%BD"><span class="nav-text">1、PicGo的下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81PicGo%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="nav-text">2、PicGo的配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81typora%E7%9A%84%E8%AE%BE%E7%BD%AE"><span class="nav-text">三、typora的设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E4%B8%8B%E8%BD%BDtypora"><span class="nav-text">1、下载typora</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81typora%E7%9A%84%E7%9B%B8%E5%85%B3%E8%AE%BE%E7%BD%AE"><span class="nav-text">2、typora的相关设置</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text"></span></a></li></ol>
     </div>
 </div>
         </aside>
