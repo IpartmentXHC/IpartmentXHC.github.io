@@ -9,7 +9,7 @@
     
     <title>
         
-            N种方法解决 |
+            GWCTF-2019-re3 |
         
         XHC的实记
     </title>
@@ -137,7 +137,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">N种方法解决</span>
+            <span class="title-hover-animation">GWCTF-2019-re3</span>
         </div>
 
         
@@ -156,8 +156,8 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2022-07-12 12:40:30</span>
-        <span class="mobile">2022-07-12 12:40</span>
+        <span class="pc">2022-07-18 18:02:08</span>
+        <span class="mobile">2022-07-18 18:02</span>
     </span>
     
         <span class="article-categories article-meta-item">
@@ -173,7 +173,7 @@
                     </li>
                 
                     <li>
-                        &gt; <a href="/categories/%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/BUUCTF/misc/">misc</a>&nbsp;
+                        &gt; <a href="/categories/%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/BUUCTF/re/">re</a>&nbsp;
                     </li>
                 
             </ul>
@@ -184,7 +184,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>242 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>351 字</span>
         </span>
     
     
@@ -205,49 +205,114 @@
         
 
         <div class="article-content markdown-body">
-            <h1 id=""><a href="#" class="headerlink" title=""></a></h1><p>解压发现是exe文件 运行不了</p>
-<p>用<strong>exeinfo PE</strong>侦测一下</p>
+            <h1 id=""><a href="#" class="headerlink" title=""></a></h1><h3 id="看题目"><a href="#看题目" class="headerlink" title="看题目"></a>看题目</h3><h4 id="PE查壳"><a href="#PE查壳" class="headerlink" title="PE查壳"></a>PE查壳</h4><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202207181811518.png"
+                      alt="image-20220718181121475"
+                ></p>
+<p>无壳64位的linux程序 </p>
+<h4 id="用IDA打开"><a href="#用IDA打开" class="headerlink" title="用IDA打开"></a>用IDA打开</h4><p>找到main函数</p>
+<p><strong><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202207181814542.png"
+                      alt="image-20220718181449490"
+                ></strong></p>
+<p>接受一个 32位的 字符串</p>
+<p>存在一个mprotect 函数 紧接着一个大循环 猜测是加密后解密</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202207121243463.png"
-                      alt="image-20220712124317423"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202207181821525.png"
+                      alt="image-20220718182140500"
                 ></p>
-<p>base64&#x2F;32 加密文件 用<strong>010</strong>打开</p>
+<p>查看汇编窗口 果然如此</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202207121244054.png"
-                      alt="image-20220712124436005"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202207181822820.png"
+                      alt="image-20220718182242789"
                 ></p>
-<p>将base64加密的密文复制</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">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</span><br></pre></td></tr></table></figure>
+<p>因为是Linux程序 本人暂时不知道如何利用动态调试去“去除“这个函数的”壳“</p>
+<h4 id="去壳"><a href="#去壳" class="headerlink" title="去壳"></a>去壳</h4><p>只能利用IDC脚本静态”去壳“ </p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202207181833537.png"
+                      alt="image-20220718183316472"
+                ></p>
+<p>shift + F2 就可以调出脚本编辑器 输入脚本后点击Run 即可 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;idc.idc&gt;</span><br><span class="line"></span><br><span class="line">static main()</span><br><span class="line">&#123;</span><br><span class="line">    auto addr = 0x402219;</span><br><span class="line">    auto i = 0;</span><br><span class="line">    for(i=0;i&lt;224;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        PatchByte(addr+i,Byte(addr+i)^0x99);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>去在线网站解码</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202207121246473.png"
-                      alt="image-20220712124654414"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202207181836489.png"
+                      alt="image-20220718183609445"
                 ></p>
-<p>是png图片 下载下来</p>
-<p>是张二维码图片</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202207121247148.png"
-                      alt="image-20220712124747123"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202207181844601.png"
+                      alt="image-20220718184427550"
                 ></p>
-<p>用<strong>QR</strong>打开</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202207121249857.png"
-                      alt="image-20220712124928820"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202207181847313.png"
+                      alt="image-20220718184753270"
                 ></p>
-<p>得flag</p>
+<p>仔细观看这些函数 都是一些比较复杂的 用findcrypt 插件(需要自行下载)</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202207181853911.png"
+                      alt="image-20220718185328869"
+                ></p>
+<h4 id="sub-40207B函数"><a href="#sub-40207B函数" class="headerlink" title="sub_40207B函数"></a>sub_40207B函数</h4><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202207181854720.png"
+                      alt="image-20220718185440691"
+                ></p>
+<p>其中sub_401CF9是MD5加密函数 </p>
+<p>a1是函数导入的参数 我们盯着 a1看</p>
+<p>a1只和V2产生联系</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202207190915753.png"
+                      alt="image-20220719091558704"
+                ></p>
 <blockquote>
-<p>flag{dca57f966e4e4e31fd5b15417da63269}</p>
+<p>按理说：只要将base64的码表 MD5加密俩次就可以获得 a1的值了 但是事实并非如此 其中的原因 本人暂时还不知 只能利用动调得到unk_603170</p>
+</blockquote>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202207190935915.png"
+                      alt="image-20220719093553883"
+                ></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CB8D493521B47A4CC1AE7E62229266CE</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="sub-40221A函数"><a href="#sub-40221A函数" class="headerlink" title="sub_40221A函数"></a>sub_40221A函数</h4><p>由findcrypt插件可知此函数中存在AES加密</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202207190938559.png"
+                      alt="image-20220719093830523"
+                ></p>
+<p>byte_6030A0中存放的就是A1最后AES加密出的密文 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BC0AADC0147C5ECCE0B140BC9C51D52B46B2B9434DE5324BAD7FB4B39CDB4B5B</span><br></pre></td></tr></table></figure>
+
+<p>其中unk_603170就是我们AES中的密钥</p>
+<h3 id="写脚本"><a href="#写脚本" class="headerlink" title="写脚本"></a>写脚本</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Cipher <span class="keyword">import</span> AES</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">password = long_to_bytes(<span class="number">0xCB8D493521B47A4CC1AE7E62229266CE</span>)</span><br><span class="line">aes = AES.new(password,mode=AES.MODE_ECB) </span><br><span class="line">en_text = long_to_bytes(<span class="number">0xBC0AADC0147C5ECCE0B140BC9C51D52B46B2B9434DE5324BAD7FB4B39CDB4B5B</span>)</span><br><span class="line">den_text = aes.decrypt(en_text) </span><br><span class="line"><span class="built_in">print</span>((den_text))</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>flag{924a9ab2163d390410d0a1f670}</p>
 </blockquote>
 
         </div>
@@ -256,11 +321,11 @@
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li>本文标题：N种方法解决</li>
+        <li>本文标题：GWCTF-2019-re3</li>
         <li>本文作者：萧禾材</li>
-        <li>创建时间：2022-07-12 12:40:30</li>
+        <li>创建时间：2022-07-18 18:02:08</li>
         <li>
-            本文链接：https://keep.xpoet.cn/2022/07/12/N种方法解决/
+            本文链接：https://keep.xpoet.cn/2022/07/18/GWCTF-2019-re3/
         </li>
         <li>
             版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -279,13 +344,13 @@
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2022/07/12/%E5%9F%BA%E7%A1%80%E7%A0%B4%E8%A7%A3/"
+                           href="/2022/07/19/java%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">基础破解</span>
+                                <span class="post-nav-title-item">java学习总结</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                         </a>
@@ -295,10 +360,10 @@
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/07/12/typora-picgo-github%E4%B8%89%E8%80%85%E8%81%94%E5%8A%A8%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E4%B8%8A%E4%BC%A0/"
+                           href="/2022/07/13/%E9%9D%92%E9%BE%99%E7%BB%84-jocker/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">typora-picgo-github三者联动实现自动上传图片</span>
+                                <span class="post-nav-title-item">网鼎杯-2020-青龙组-jocker</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -424,7 +489,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text"></span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9C%8B%E9%A2%98%E7%9B%AE"><span class="nav-text">看题目</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#PE%E6%9F%A5%E5%A3%B3"><span class="nav-text">PE查壳</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%A8IDA%E6%89%93%E5%BC%80"><span class="nav-text">用IDA打开</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8E%BB%E5%A3%B3"><span class="nav-text">去壳</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sub-40207B%E5%87%BD%E6%95%B0"><span class="nav-text">sub_40207B函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sub-40221A%E5%87%BD%E6%95%B0"><span class="nav-text">sub_40221A函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%99%E8%84%9A%E6%9C%AC"><span class="nav-text">写脚本</span></a></li></ol></li></ol></li></ol>
     </div>
 </div>
         </aside>
