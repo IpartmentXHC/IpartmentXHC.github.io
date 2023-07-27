@@ -9,7 +9,7 @@
     
     <title>
         
-        XHC的实记
+        XHC BLOG
     </title>
     
 <link rel="stylesheet" href="/css/style.css">
@@ -48,7 +48,7 @@
         <div class="left">
             
             <a class="logo-title" href="/">
-                XHC的实记
+                XHC BLOG
             </a>
         </div>
 
@@ -139,6 +139,330 @@
                 
 
                 <h3 class="home-article-title">
+                    <a href="/2022/07/12/%E9%95%9C%E5%AD%90%E9%87%8C%E9%9D%A2%E7%9A%84%E4%B8%96%E7%95%8C/">
+                        镜子里面的世界
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        LSB隐写 用stegsolve 打开
+在红 绿 蓝 0通道 有隐写
+
+
+
+提取一下发现flag
+
+
+flag{st3g0_saurus_wr3cks}
+
+
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue Jul 12 2022 14:38:17 GMT+0800">2022-07-12</span></span>
+        
+        
+    </div>
+
+    <a href="/2022/07/12/%E9%95%9C%E5%AD%90%E9%87%8C%E9%9D%A2%E7%9A%84%E4%B8%96%E7%95%8C/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2022/07/12/%E8%A2%AB%E5%97%85%E6%8E%A2%E7%9A%84%E6%B5%81%E9%87%8F/">
+                        被嗅探的流量
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        用wireshark 打开
+TCP简介
+
+追踪TCP流
+直接查找flag
+
+
+flag{da73d88936010da1eeeb36e945ec4b97}
+
+
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue Jul 12 2022 14:23:53 GMT+0800">2022-07-12</span></span>
+        
+        
+    </div>
+
+    <a href="/2022/07/12/%E8%A2%AB%E5%97%85%E6%8E%A2%E7%9A%84%E6%B5%81%E9%87%8F/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2022/07/12/zip%E4%BC%AA%E5%8A%A0%E5%AF%86/">
+                        zip伪加密
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        zip伪加密的原理参考这篇博客
+
+ctf伪加密
+
+用010打开
+
+按blog所说应是真加密
+
+但题目直言是伪加密 只好硬着头皮改
+
+改完后 解压就不需要密码了
+
+
+flag{Adm1N-B2G-kU-SZIP}
+
+
+一般情况下伪加密只有局部加密为00...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue Jul 12 2022 13:56:45 GMT+0800">2022-07-12</span></span>
+        
+        
+    </div>
+
+    <a href="/2022/07/12/zip%E4%BC%AA%E5%8A%A0%E5%AF%86/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2022/07/12/LSB/">
+                        LSB
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        题目提示的很明显 LSB隐写
+
+LSB图片隐写
+用Stegsolve打开
+发现在 红 绿 蓝 的0通道有隐写
+
+
+
+提取一下
+
+
+文件头为PNG 说明是PNG图片
+
+
+保存一下 以  .png  结尾
+是张二维码图片
+用QR 打开
+
+得flag
+
+f...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue Jul 12 2022 13:41:28 GMT+0800">2022-07-12</span></span>
+        
+        
+    </div>
+
+    <a href="/2022/07/12/LSB/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2022/07/12/wireshark/">
+                        wireshark
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        写这题需要wireshark工具
+
+Wireshark · Go Deep.
+
+用wireshark打开 抓取POST的包
+
+
+找到包后 右键追踪http流
+
+因为题目要求我们找密码 
+
+
+直接搜索 password 或者 眼力好一眼看见
+
+flag...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue Jul 12 2022 13:21:17 GMT+0800">2022-07-12</span></span>
+        
+        
+    </div>
+
+    <a href="/2022/07/12/wireshark/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2022/07/12/%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84%E7%A7%98%E5%AF%86/">
+                        文件中的秘密
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        一张 路飞 的图片
+
+各种方法都试了一下 没有发现什么
+最后在图片属性 详细信息中找到flag
+
+
+flag{870c5a72806115cb5439345d8b014396}
+
+
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue Jul 12 2022 13:12:14 GMT+0800">2022-07-12</span></span>
+        
+        
+    </div>
+
+    <a href="/2022/07/12/%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84%E7%A7%98%E5%AF%86/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2022/07/12/%E4%B9%8C%E9%95%87%E5%B3%B0%E4%BC%9A%E7%A7%8D%E5%9B%BE/">
+                        乌镇峰会种图
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        是一张图片 
+用stegsolve 打开 并没有发现什么
+用binwalk 探查 没有发现什么
+用010打开
+发现flag就藏在最后
+
+
+flag{97314e7864a8f62627b26f3f998c37f1}
+
+
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue Jul 12 2022 13:01:09 GMT+0800">2022-07-12</span></span>
+        
+        
+    </div>
+
+    <a href="/2022/07/12/%E4%B9%8C%E9%95%87%E5%B3%B0%E4%BC%9A%E7%A7%8D%E5%9B%BE/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2022/07/12/%E5%9F%BA%E7%A1%80%E7%A0%B4%E8%A7%A3/">
+                        基础破解
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        题目有提示 四位数字加密
+
+用ARCHPR暴力破解一下
+
+解压得flag.txt
+
+base64加密
+
+得flag
+
+flag{70354300a5100ba78068805661b93a5c}
+
+最后分享一张图片
+
+
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue Jul 12 2022 12:51:51 GMT+0800">2022-07-12</span></span>
+        
+        
+    </div>
+
+    <a href="/2022/07/12/%E5%9F%BA%E7%A1%80%E7%A0%B4%E8%A7%A3/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
                     <a href="/2022/07/12/N%E7%A7%8D%E6%96%B9%E6%B3%95%E8%A7%A3%E5%86%B3/">
                         N种方法解决
                     </a>
@@ -200,140 +524,6 @@ base64&#x2F;32 加密文件 用010打开
 
             </li>
         
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2022/07/11/%E4%BD%A0%E7%AB%9F%E7%84%B6%E8%B5%B6%E6%88%91%E8%B5%B0/">
-                        你竟然赶我走
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        #只有一张JGP图片 猜是图片隐写
-用010打开
-
-图片结尾藏了flag
-
-因为JPG这种图片文件读到 FF D9（文件尾）就不会在读了 因此可以在文件尾添加东西不影响图片的显示
-
-
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Mon Jul 11 2022 18:05:41 GMT+0800">2022-07-11</span></span>
-        
-        
-    </div>
-
-    <a href="/2022/07/11/%E4%BD%A0%E7%AB%9F%E7%84%B6%E8%B5%B6%E6%88%91%E8%B5%B0/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2022/07/11/%E4%BA%8C%E7%BB%B4%E7%A0%81/">
-                        二维码
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        #解压打开发现是张二维码图片 用QR Research 探查一下
-
-没有什么东西
-打开kali 用binwalk 探查一下 藏了一个压缩包 
-用010 打开观察加密信息 不是伪加密 
-试了试二维码的内容secret is here
-也不对 那只能爆破...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Mon Jul 11 2022 17:55:05 GMT+0800">2022-07-11</span></span>
-        
-        
-    </div>
-
-    <a href="/2022/07/11/%E4%BA%8C%E7%BB%B4%E7%A0%81/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2022/07/11/%E9%87%91%E4%B8%89%E8%83%96/">
-                        金三胖
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        解压打开是GIF 动图
-用stegsolve打开
-
-逐帧逐帧看
-
-
-
-可得flag
-
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Mon Jul 11 2022 16:42:23 GMT+0800">2022-07-11</span></span>
-        
-        
-    </div>
-
-    <a href="/2022/07/11/%E9%87%91%E4%B8%89%E8%83%96/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2022/07/11/hello/">
-                        hello
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        简介这是我的正式的第一篇blog hexo艹
-
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Mon Jul 11 2022 14:29:37 GMT+0800">2022-07-11</span></span>
-        
-        
-    </div>
-
-    <a href="/2022/07/11/hello/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
     </ul>
 
     <div class="home-paginator">
@@ -344,6 +534,10 @@ base64&#x2F;32 加密文件 用010打开
         >上一页</a>
     
 
+    
+        <a class="next btn"
+           href="/page/4/"
+        >下一页</a>
     
 </div>
 
@@ -365,7 +559,7 @@ base64&#x2F;32 加密文件 用010打开
               <span>2022</span>
               -
             
-            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">萧禾财</a>
+            2023&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">萧禾财</a>
         </div>
         
             <script async  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>

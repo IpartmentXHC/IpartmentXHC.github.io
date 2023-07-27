@@ -9,7 +9,7 @@
     
     <title>
         
-        XHC的实记
+        XHC BLOG
     </title>
     
 <link rel="stylesheet" href="/css/style.css">
@@ -48,7 +48,7 @@
         <div class="left">
             
             <a class="logo-title" href="/">
-                XHC的实记
+                XHC BLOG
             </a>
         </div>
 
@@ -139,6 +139,264 @@
                 
 
                 <h3 class="home-article-title">
+                    <a href="/2022/08/01/volatility%E5%86%85%E5%AD%98%E5%8F%96%E8%AF%81%E5%B7%A5%E5%85%B7/">
+                        volatility内存取证工具
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        基本介绍Volatility是一款非常强大的内存取证工具，能够对导出的内存镜像进行分析，通过获取内核数据结构，使用插件获取内存的详细情况以及系统的运行状态，并且是一个开源的项目。
+官网下载   官方文档
+当我们遇到一些img、dmp、raw、vmem...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Mon Aug 01 2022 12:47:15 GMT+0800">2022-08-01</span></span>
+        
+        
+    </div>
+
+    <a href="/2022/08/01/volatility%E5%86%85%E5%AD%98%E5%8F%96%E8%AF%81%E5%B7%A5%E5%85%B7/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2022/07/31/BlueBird-apk2/">
+                        BlueBird_apk2
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        观察题目是一个apk文件，用jadx打开 好像是native层逆向
+解压apk文件打开lib文件夹 找 .so文件
+
+用IDA打开
+找到两个关键函数 proc01 和 verify 
+
+verify有核实验证之意可能是check flag的函数
+还原...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Sun Jul 31 2022 14:38:24 GMT+0800">2022-07-31</span></span>
+        
+        
+    </div>
+
+    <a href="/2022/07/31/BlueBird-apk2/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2022/07/31/xpxp/">
+                        xpxp
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        观察题目给了一个raw文件 一般对于题要用 volatility内存取证工具
+
+官网下载地址  不建议下载3.0版本 还不稳定
+我是在windows系统上运行的，以下命令都是在win命令
+
+首先查看系统的属性
+12345678910111213141...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Sun Jul 31 2022 12:52:42 GMT+0800">2022-07-31</span></span>
+        
+        
+    </div>
+
+    <a href="/2022/07/31/xpxp/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2022/07/29/meikyu2/">
+                        meikyu2
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        观察题目压缩包中有四个文件
+
+打开mian.py
+可以发现flag判断程序
+根据关键字“START, END, WALL, ROAD” 猜测这是一道迷宫题
+mylib是作者自己写的库，是一个pyd文件 二进制文件 暂不清楚如何对其进行反编译
+利用**...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Fri Jul 29 2022 09:23:30 GMT+0800">2022-07-29</span></span>
+        
+        
+    </div>
+
+    <a href="/2022/07/29/meikyu2/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2022/07/28/crackme2/">
+                        crackme2
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        观察题目是apk文件用jadx反编译
+在com包下的example.CrackMe2目录下的MainActivity中 
+
+看到解题的关键
+很简单是一个魔改的RC4加密 RC4加密解密用一套算法
+脚本只要将我们得到的密文当成原文输入即可的到真正的原文...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Thu Jul 28 2022 17:00:02 GMT+0800">2022-07-28</span></span>
+        
+        
+    </div>
+
+    <a href="/2022/07/28/crackme2/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2022/07/26/%E5%85%88%E4%BB%8E%E7%9C%8B%E5%BE%97%E5%88%B0%E7%9A%84%E5%85%A5%E6%89%8B-Android%E5%AD%A6%E4%B9%A0-02/">
+                        先从看得到的入手.Android学习.02
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        活动是什么​	活动（Activity）是最容易吸引用户的地方，它是一种可以包含用户界面的组件，主要用于 和用户进行交互。一个应用程序中可以包含零个或多个活动，但不包含任何活动的应用程序很少见。
+具体操作实例Button元素这是一个最简单的Button...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue Jul 26 2022 14:22:20 GMT+0800">2022-07-26</span></span>
+        
+        
+    </div>
+
+    <a href="/2022/07/26/%E5%85%88%E4%BB%8E%E7%9C%8B%E5%BE%97%E5%88%B0%E7%9A%84%E5%85%A5%E6%89%8B-Android%E5%AD%A6%E4%B9%A0-02/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2022/07/26/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E8%A1%8CAndroid%E4%BB%A3%E7%A0%81-Android%E5%AD%A6%E4%B9%A0-01/">
+                        我的第一行Android代码.Android学习.01
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        Android系统架构Android 大致可以分为四层架构：Linux 内核层、系统运行库层、应用框架层和应用层。
+
+Linux 内核层   Android 系统是基于 Linux 内核的，这一层为 Android 设备的各种硬件提供了底层的驱动，如...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue Jul 26 2022 10:32:25 GMT+0800">2022-07-26</span></span>
+        
+        
+    </div>
+
+    <a href="/2022/07/26/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E8%A1%8CAndroid%E4%BB%A3%E7%A0%81-Android%E5%AD%A6%E4%B9%A0-01/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2022/07/19/java%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/">
+                        java学习总结
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        Java开发入门Java概述略
+Java开发环境搭建略
+Java运行机制Java程序运行时，要经过编译和运行两个步骤
+
+首先采用通用的java编译器将java源程序编译成为与平台无关的字节码文件（class文件）
+然后由java虚拟机（JVM）对字节...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue Jul 19 2022 15:51:48 GMT+0800">2022-07-19</span></span>
+        
+        
+    </div>
+
+    <a href="/2022/07/19/java%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
                     <a href="/2022/07/18/GWCTF-2019-re3/">
                         GWCTF-2019-re3
                     </a>
@@ -207,330 +465,6 @@
 
             </li>
         
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2022/07/12/%E9%95%9C%E5%AD%90%E9%87%8C%E9%9D%A2%E7%9A%84%E4%B8%96%E7%95%8C/">
-                        镜子里面的世界
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        LSB隐写 用stegsolve 打开
-在红 绿 蓝 0通道 有隐写
-
-
-
-提取一下发现flag
-
-
-flag{st3g0_saurus_wr3cks}
-
-
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue Jul 12 2022 14:38:17 GMT+0800">2022-07-12</span></span>
-        
-        
-    </div>
-
-    <a href="/2022/07/12/%E9%95%9C%E5%AD%90%E9%87%8C%E9%9D%A2%E7%9A%84%E4%B8%96%E7%95%8C/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2022/07/12/%E8%A2%AB%E5%97%85%E6%8E%A2%E7%9A%84%E6%B5%81%E9%87%8F/">
-                        被嗅探的流量
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        用wireshark 打开
-TCP简介
-
-追踪TCP流
-直接查找flag
-
-
-flag{da73d88936010da1eeeb36e945ec4b97}
-
-
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue Jul 12 2022 14:23:53 GMT+0800">2022-07-12</span></span>
-        
-        
-    </div>
-
-    <a href="/2022/07/12/%E8%A2%AB%E5%97%85%E6%8E%A2%E7%9A%84%E6%B5%81%E9%87%8F/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2022/07/12/zip%E4%BC%AA%E5%8A%A0%E5%AF%86/">
-                        zip伪加密
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        zip伪加密的原理参考这篇博客
-
-ctf伪加密
-
-用010打开
-
-按blog所说应是真加密
-
-但题目直言是伪加密 只好硬着头皮改
-
-改完后 解压就不需要密码了
-
-
-flag{Adm1N-B2G-kU-SZIP}
-
-
-一般情况下伪加密只有局部加密为00...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue Jul 12 2022 13:56:45 GMT+0800">2022-07-12</span></span>
-        
-        
-    </div>
-
-    <a href="/2022/07/12/zip%E4%BC%AA%E5%8A%A0%E5%AF%86/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2022/07/12/LSB/">
-                        LSB
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        题目提示的很明显 LSB隐写
-
-LSB图片隐写
-用Stegsolve打开
-发现在 红 绿 蓝 的0通道有隐写
-
-
-
-提取一下
-
-
-文件头为PNG 说明是PNG图片
-
-
-保存一下 以  .png  结尾
-是张二维码图片
-用QR 打开
-
-得flag
-
-f...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue Jul 12 2022 13:41:28 GMT+0800">2022-07-12</span></span>
-        
-        
-    </div>
-
-    <a href="/2022/07/12/LSB/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2022/07/12/wireshark/">
-                        wireshark
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        写这题需要wireshark工具
-
-Wireshark · Go Deep.
-
-用wireshark打开 抓取POST的包
-
-
-找到包后 右键追踪http流
-
-因为题目要求我们找密码 
-
-
-直接搜索 password 或者 眼力好一眼看见
-
-flag...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue Jul 12 2022 13:21:17 GMT+0800">2022-07-12</span></span>
-        
-        
-    </div>
-
-    <a href="/2022/07/12/wireshark/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2022/07/12/%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84%E7%A7%98%E5%AF%86/">
-                        文件中的秘密
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        一张 路飞 的图片
-
-各种方法都试了一下 没有发现什么
-最后在图片属性 详细信息中找到flag
-
-
-flag{870c5a72806115cb5439345d8b014396}
-
-
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue Jul 12 2022 13:12:14 GMT+0800">2022-07-12</span></span>
-        
-        
-    </div>
-
-    <a href="/2022/07/12/%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84%E7%A7%98%E5%AF%86/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2022/07/12/%E4%B9%8C%E9%95%87%E5%B3%B0%E4%BC%9A%E7%A7%8D%E5%9B%BE/">
-                        乌镇峰会种图
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        是一张图片 
-用stegsolve 打开 并没有发现什么
-用binwalk 探查 没有发现什么
-用010打开
-发现flag就藏在最后
-
-
-flag{97314e7864a8f62627b26f3f998c37f1}
-
-
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue Jul 12 2022 13:01:09 GMT+0800">2022-07-12</span></span>
-        
-        
-    </div>
-
-    <a href="/2022/07/12/%E4%B9%8C%E9%95%87%E5%B3%B0%E4%BC%9A%E7%A7%8D%E5%9B%BE/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2022/07/12/%E5%9F%BA%E7%A1%80%E7%A0%B4%E8%A7%A3/">
-                        基础破解
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        题目有提示 四位数字加密
-
-用ARCHPR暴力破解一下
-
-解压得flag.txt
-
-base64加密
-
-得flag
-
-flag{70354300a5100ba78068805661b93a5c}
-
-最后分享一张图片
-
-
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue Jul 12 2022 12:51:51 GMT+0800">2022-07-12</span></span>
-        
-        
-    </div>
-
-    <a href="/2022/07/12/%E5%9F%BA%E7%A1%80%E7%A0%B4%E8%A7%A3/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
     </ul>
 
     <div class="home-paginator">
@@ -566,7 +500,7 @@ flag{70354300a5100ba78068805661b93a5c}
               <span>2022</span>
               -
             
-            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">萧禾财</a>
+            2023&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">萧禾财</a>
         </div>
         
             <script async  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>

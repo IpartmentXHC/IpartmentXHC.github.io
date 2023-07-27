@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="萧禾财">
+    
+    <title>
+        
+            类-自定义数据类型 |
+        
+        XHC BLOG
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":false,"init_open":true},"style":{"primary_color":"#1772b4","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":true},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                XHC BLOG
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">类-自定义数据类型</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">萧禾财</span>
+                        
+                            <span class="author-label">Lv4</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-10-29 21:20:05</span>
+        <span class="mobile">2022-10-29 21:20</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/">刷题记录</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        &gt; <a href="/categories/%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/BUUCTF/">BUUCTF</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        &gt; <a href="/categories/%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/BUUCTF/misc/">misc</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>2k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>6 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id=""><a href="#" class="headerlink" title=""></a></h1><p>面向对象语言编程基于于对象类型相关的三个基本概念：封装性，多态性，继承性。</p>
+<p>面向对象的程序设计过程首先要确定解决问题需要哪些新的专用的数据类型，并把它定义为类，然后根据该问题的相关具体对象可以执行的操作编写程序。</p>
+<h2 id="理解类"><a href="#理解类" class="headerlink" title="理解类"></a>理解类</h2><h3 id="定义类"><a href="#定义类" class="headerlink" title="定义类"></a>定义类</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202210292138949.png"
+                      alt="image-20221029213817908"
+                ></p>
+<p>public关键字决定后面那些成员的访问属性。将数据成员指定为public，意味着再包含这些成员的类对象的作用域内任意位置都可以访问它。</p>
+<p>还可将成员指定为 private 或 protected ，完全省略说明，默认访问属性是private。（结构体的类型为public）</p>
+<h3 id="声明类的对象"><a href="#声明类的对象" class="headerlink" title="声明类的对象"></a>声明类的对象</h3><p>声明类的对象和声明结构体的方法完全相同。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202210292146705.png"
+                      alt="image-20221029214610683"
+                ></p>
+<p>对象名box1表示整个对象，包括3个数据成员。对象的数据成员均没有初始化。</p>
+<h3 id="访问类的数据成员"><a href="#访问类的数据成员" class="headerlink" title="访问类的数据成员"></a>访问类的数据成员</h3><p>可以利用直接成员选择操作符来引用类对象的数据成员。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202210292150360.png"
+                      alt="image-20221029215003339"
+                ></p>
+<p>因为box2的数据成员的访问属性为public，所以在类外部的函数中只能以这种方式访问该数据成员。</p>
+<h3 id="类的成员函数"><a href="#类的成员函数" class="headerlink" title="类的成员函数"></a>类的成员函数</h3><p>类的成员函数是其定义或原型在类定义内部的函数，它们可以处理本类的任何对象，有权访问本类的所有成员。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202210292158453.png"
+                      alt="image-20221029215842427"
+                ></p>
+<p>注意，给类添加成员函数不会影响类对象的大小。</p>
+<h3 id="成员函数定义的位置"><a href="#成员函数定义的位置" class="headerlink" title="成员函数定义的位置"></a>成员函数定义的位置</h3><p>成员函数不一定要定义在类的内部。如果希望将其放在类外部定义，则需要将函数原型放在类的内部。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202210292212721.png"
+                      alt="image-20221029221244691"
+                ></p>
+<p>因为实在类外部定义，所以要告诉编译器：该函数属于CBox类——即给函数名加上类名作为前缀，并用作用域解析运算符<code>::</code>(两个冒号)将二者分隔。</p>
+<p>这样写产生的于上面的输出是一致的，但两者不是同一个程序了。在类内部定义函数时，编译器会暗中将其当作内联函数对待。</p>
+<h3 id="内联函数"><a href="#内联函数" class="headerlink" title="内联函数"></a>内联函数</h3><p>在内联函数中，编译器会设法以函数体代码代替函数调用，这样可以避免调用函数时大量的系统开销，加快运行。</p>
+<p>在函数定义位于类定义外部时，也可以告诉编译器将函数视为内联函数——即在函数头前面加上关键字 <code>inline</code></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202210292218581.png"
+                      alt="image-20221029221836561"
+                ></p>
+<p>此时程序将于在类定义内的函数一样了。内联函数最适合用于短小精悍的简单程序。</p>
+<h2 id="类构造函数"><a href="#类构造函数" class="headerlink" title="类构造函数"></a>类构造函数</h2><h3 id="构造函数的概念"><a href="#构造函数的概念" class="headerlink" title="构造函数的概念"></a>构造函数的概念</h3><p>类的构造函数是类的特殊的函数，在创建新的类对象时调用它，因此，该函数提供了创建对象时进行初始化的机会。</p>
+<p>类可以有多个构造函数，以确保用不同的方式创建对象。</p>
+<p>命名类构造函数时，函数名总是于所属类的名称相同，构造函数没有任何的返回类型。例如：CBox的构造函数时CBox()。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202210301326464.png"
+                      alt="image-20221030132641422"
+                ></p>
+<p>上面所示的构造函数CBox()有3个double类型的形参，分别可以对m_length,m_width,m_height赋初值。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202210301333506.png"
+                      alt="image-20221030133305989"
+                ></p>
+<h3 id="默认的构造函数"><a href="#默认的构造函数" class="headerlink" title="默认的构造函数"></a>默认的构造函数</h3><p>默认的构造函数时不要求提供实参的函数，可以是没有指定任何形参的的构造函数，也可以是实参全部有默认值得构造函数。</p>
+<p>当我们没有定义构造函数时，编译器将提供默认的无实参构造函数。当我们定义的构造函数时，编译器将不再提供默认的构造函数。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202210301353715.png"
+                      alt="image-20221030135230211"
+                ></p>
+<p>如果我们仍然希望声明没有初始化的CBox对象时，则必须自己添加默认构造函数。</p>
+<p>例如：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202210301358504.png"
+                      alt="image-20221030135809474"
+                ></p>
+<h3 id="默认的形参值"><a href="#默认的形参值" class="headerlink" title="默认的形参值"></a>默认的形参值</h3><p>我们可以在函数原型中给函数的形参指定默认值，同样也可以对类的成员函数（包括构造函数）这样做。</p>
+<p>例如：<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202210301408625.png"
+                      alt="image-20221030140310704"
+                ></p>
+<p>此时当我声明函数时就可以不带参数，但是此时就会和默认的构造函数冲突。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202210301407649.png"
+                      alt="image-20221030140746617"
+                ></p>
+<p>编译器不知道应该调用那个构造函数。最好的办法就是去除默认的构造函数，此时任何未显式初始化的CBox对象的数据成员将自动初始化为1.</p>
+<h3 id="在构造函数中使用初始化列表"><a href="#在构造函数中使用初始化列表" class="headerlink" title="在构造函数中使用初始化列表"></a>在构造函数中使用初始化列表</h3><p>我们使用显式赋值语句在类构造函数中初始化对象成员时，还可以用另一种技术——初始化列表。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202210301418869.png"
+                      alt="image-20221030141833840"
+                ></p>
+<p>这样的初始化方式要比用赋值语句效率高。并且这是给对象的某些类型的数据成员赋值的唯一方法。</p>
+<p>构造函数的初始话列表于形参列表之间要用冒号隔开，各个初始化的成员之间以逗号隔开。</p>
+<h3 id="声明显示的构造函数"><a href="#声明显示的构造函数" class="headerlink" title="声明显示的构造函数"></a>声明显示的构造函数</h3><p>现在的编译器很智能帮助简化了很多事，当我们定义了一个具有单一形量的构造函数，在使用此函数时有时就会出现隐式转化，而有时我们不希望出现隐式转化。</p>
+<p>例如：<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202210301439507.png"
+                      alt="image-20221030143848654"
+                ></p>
+<p>创建这样一个构造函数，只有一个形参。再考虑下面这段代码：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202210301442096.png"
+                      alt="image-20221030144252062"
+                ></p>
+<p>这段代码中，调用构造函数CBox(double)创建类box，并将其赋值，此时值99要从类型double到CBox的隐式转换。有时我们并不想出现这种隐式转换情况。</p>
+<p>此时我们就可有在构造函数的定义中使用<code>explicit</code>(显式的)关键字来阻止这种情况。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202210301920840.png"
+                      alt="image-20221030192029799"
+                ></p>
+<p>构造函数声明为explicit，则只能显示的调用它，且不用于隐式转换。</p>
+<p>此时要想把对象的成员赋值，只能这样写：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202210301924363.png"
+                      alt="image-20221030192449337"
+                ></p>
+<p>这不是转换，而是显示的调用了含单一形参的构造函数。</p>
+<p>还一种不希望出现隐式转换的。一个构造函数，有多个形参且都有默认值。前面出现过的：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202210301930221.png"
+                      alt="image-20221030193007192"
+                ></p>
+<p>因为第二第三个形参有默认值，所以下面代码可以执行：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202210301935025.png"
+                      alt="image-20221030193533999"
+                ></p>
+<p>这一次是隐式调用构造函数，第一参数会被赋值为99.0，其他两个实参值是默认值。这也不是我们所期望的。为了防止这种情况，我们要显式声明构造函数。</p>
+<h2 id="类的私有成员"><a href="#类的私有成员" class="headerlink" title="类的私有成员"></a>类的私有成员</h2><p>在定义类成员时使用关键字<code>private</code>，此时的类成员只有类的成员函数可以访问。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202210301940469.png"
+                      alt="image-20221030194055439"
+                ></p>
+<p>现在，3个数据成员只能被本类的尘缘函数访问。</p>
+<p>此时在main函数中在想直接对类的数据成员赋值或使用，编译器将报错。</p>
+<p>要注意，现在使用构造函数时唯一一种给数据成员赋值的方法。</p>
+<p>同样的，成员函数也可以被private修饰，这种情况下，它只能被其他函数成员调用。</p>
+<h3 id="访问私有类成员"><a href="#访问私有类成员" class="headerlink" title="访问私有类成员"></a>访问私有类成员</h3><p>我们使用private关键字确实很好的保护了类成员，但是也不利于我们使用类成员。</p>
+<p>因此我们要编写一个返回数据成员值得成员函数即可。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202210301955554.png"
+                      alt="image-20221030195518527"
+                ></p>
+<p>当我们需要数据成员时</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202210302017655.png"
+                      alt="image-20221030201700628"
+                ></p>
+<p>这样既可以访问这些成员的值，又不会危害类的安全性。</p>
+<h3 id="类的友元函数"><a href="#类的友元函数" class="headerlink" title="类的友元函数"></a>类的友元函数</h3><p>有时候由于某种原因，我们希望某些虽然不是类成员得函数能够能够访问类的所有成员——拥有特殊的权限。</p>
+<p>这样的函数被称为类的友元函数，使用关键字<code>friend</code>来定义。可以在类定义中添加友元函数的原型，也可以添加整个函数的定义。在类定义内的友元函数也是内联函数。</p>
+<p>注意，友元函数并不是类的成员，因此访问特性不适合它。这些函数知识拥有特殊权利的普通全局函数。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202210302120601.png"
+                      alt="image-20221030211011986"
+                ></p>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：类-自定义数据类型</li>
+        <li>本文作者：萧禾财</li>
+        <li>创建时间：2022-10-29 21:20:05</li>
+        <li>
+            本文链接：https://ipartmentxhc.github.io/2022/10/29/类-自定义数据类型/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/11/04/%E3%80%8ASoK-Eternal-War-in-Memory%E3%80%8B%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">《SoK:_Eternal_War_in_Memory》学习总结</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/10/27/Minesweeper/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Minesweeper</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2023&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">萧禾财</a>
+        </div>
+        
+            <script async  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%90%86%E8%A7%A3%E7%B1%BB"><span class="nav-text">理解类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E7%B1%BB"><span class="nav-text">定义类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A3%B0%E6%98%8E%E7%B1%BB%E7%9A%84%E5%AF%B9%E8%B1%A1"><span class="nav-text">声明类的对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE%E7%B1%BB%E7%9A%84%E6%95%B0%E6%8D%AE%E6%88%90%E5%91%98"><span class="nav-text">访问类的数据成员</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E7%9A%84%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0"><span class="nav-text">类的成员函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0%E5%AE%9A%E4%B9%89%E7%9A%84%E4%BD%8D%E7%BD%AE"><span class="nav-text">成员函数定义的位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0"><span class="nav-text">内联函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="nav-text">类构造函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="nav-text">构造函数的概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4%E7%9A%84%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="nav-text">默认的构造函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4%E7%9A%84%E5%BD%A2%E5%8F%82%E5%80%BC"><span class="nav-text">默认的形参值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E4%B8%AD%E4%BD%BF%E7%94%A8%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8"><span class="nav-text">在构造函数中使用初始化列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A3%B0%E6%98%8E%E6%98%BE%E7%A4%BA%E7%9A%84%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="nav-text">声明显示的构造函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E7%9A%84%E7%A7%81%E6%9C%89%E6%88%90%E5%91%98"><span class="nav-text">类的私有成员</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE%E7%A7%81%E6%9C%89%E7%B1%BB%E6%88%90%E5%91%98"><span class="nav-text">访问私有类成员</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E7%9A%84%E5%8F%8B%E5%85%83%E5%87%BD%E6%95%B0"><span class="nav-text">类的友元函数</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/dark-light-toggle.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/code-copy.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/lazyload.js"></script>
+
+
+<div class="post-scripts">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.5/source/js/toc.js"></script>
+    
+</div>
+
+
+
+</body>
+</html>
