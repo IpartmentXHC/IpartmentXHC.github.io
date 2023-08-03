@@ -9,7 +9,7 @@
     
     <title>
         
-            制作Linux内存镜像+制作对应的volatility_profile |
+            虚拟机装win7系统 |
         
         XHC BLOG
     </title>
@@ -137,7 +137,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">制作Linux内存镜像+制作对应的volatility_profile</span>
+            <span class="title-hover-animation">虚拟机装win7系统</span>
         </div>
 
         
@@ -156,8 +156,8 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2022-11-06 18:46:02</span>
-        <span class="mobile">2022-11-06 18:46</span>
+        <span class="pc">2023-07-27 11:35:29</span>
+        <span class="mobile">2023-07-27 11:35</span>
     </span>
     
         <span class="article-categories article-meta-item">
@@ -165,15 +165,7 @@
             <ul>
                 
                     <li>
-                        <a href="/categories/%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/">刷题记录</a>&nbsp;
-                    </li>
-                
-                    <li>
-                        &gt; <a href="/categories/%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/BUUCTF/">BUUCTF</a>&nbsp;
-                    </li>
-                
-                    <li>
-                        &gt; <a href="/categories/%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95/BUUCTF/misc/">misc</a>&nbsp;
+                        <a href="/categories/%E9%97%B2%E8%AF%9D/">闲话</a>&nbsp;
                     </li>
                 
             </ul>
@@ -184,12 +176,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>1k 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>547 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>4 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>1 分钟</span>
         </span>
     
     
@@ -205,69 +197,95 @@
         
 
         <div class="article-content markdown-body">
-            <h1 id=""><a href="#" class="headerlink" title=""></a></h1><p>2022祥云杯出了一道需要自己构建新版本内核的题。之前都没有遇到过取证Linux内存的题，大多是Windows系统的内存取证。</p>
-<p><strong>volatility</strong>工具只自带Windows系统 profile ,Linux 需要自己添加。</p>
-<h2 id="识别Linux内存映像的内核版本"><a href="#识别Linux内存映像的内核版本" class="headerlink" title="识别Linux内存映像的内核版本"></a>识别Linux内存映像的内核版本</h2><p>利用string指令，提取出被dump出来的文件的系统内核的版本是什么。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings 1.mem | grep &quot;Linux version&quot;  </span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Linux version 5.4.0-84-generic (buildd@lcy01-amd64-007) (gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04)) #94~18.04.1-Ubuntu SMP Thu Aug 26 23:17:46 UTC 2021 (Ubuntu 5.4.0-84.94~18.04.1-generic 5.4.133)</span><br><span class="line">Linux version 5.4.0-84-generic (buildd@lcy01-amd64-007) (gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04)) #94~18.04.1-Ubuntu SMP Thu Aug 26 23:17:46 UTC 2021 (Ubuntu 5.4.0-84.94~18.04.1-generic 5.4.133)</span><br><span class="line">(however the Linux version lacks some of the features of Windows and Mac version). </span><br><span class="line">(however the Linux version lacks some of the features of Windows and Mac version). </span><br><span class="line">Linux version %d.%d.%d</span><br><span class="line">&lt;p&gt;This is the GNU/Linux version of the popular PasswordSafe password manager, originally designed by the renowned security technologist Bruce Schneier and open sourced in 2002.&lt;/p&gt;</span><br><span class="line">&lt;p&gt;This is the GNU/Linux version of the popular PasswordSafe password manager, originally designed by the renowned security technologist Bruce Schneier and open sourced in 2002.&lt;/p&gt;</span><br><span class="line">MESSAGE=Linux version 5.4.0-84-generic (buildd@lcy01-amd64-007) (gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04)) #94~18.04.1-Ubuntu SMP Thu Aug 26 23:17:46 UTC 2021 (Ubuntu 5.4.0-84.94~18.04.1-generic 5.4.133)</span><br><span class="line">Linux version 5.4.0-84-generic (buildd@lcy01-amd64-007) (gcc version 7.5.0 (Ubuntu 7.5.0-3ubuntu1~18.04)) #94~18.04.1-Ubuntu SMP Thu Aug 26 23:17:46 UTC 2021 (Ubuntu 5.4.0-84.94~18.04.1-generic 5.4.133)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>这里可以看到祥云杯附件Linux kernel是5.4.0-84-generic</p>
-<p>而这个内核版本只有ubuntu18.04以下的才能下载使用 <del>我之前一直用的是20.04 搞了很久 浪费很多时间</del></p>
-<p>可以使用以下命令查看已经安装的内核镜像</p>
-<p><code>dpkg --get-selections |grep linux-image</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">xhc@ubuntu:~/Desktop/volatility$ dpkg --get-selections |grep linux-image</span><br><span class="line">linux-image-5.4.0-131-generic			install</span><br><span class="line">linux-image-5.4.0-84-generic			install</span><br><span class="line">linux-image-5.4.0-84-lowlatency			install</span><br><span class="line">linux-image-generic-hwe-18.04			install</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<p>此时我是 已经下载好了linux-image-5.4.0-84-generic，正常是没有的</p>
-<p>利用下面命令下载需要的内核版本，<code>x</code>根据自己需求替换</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install linux-image-x.x.x-xx-lowlatency linux-headers-x.x.x-xx-lowlatency</span><br></pre></td></tr></table></figure>
-
-<h2 id="替换内核版本"><a href="#替换内核版本" class="headerlink" title="替换内核版本"></a>替换内核版本</h2><p>接下来就是替换内核版本，这里说说我的Ubuntu18.04切换切换内核的方法</p>
-<p>执行下面的命令可以选择内核版本启动</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/default/grub</span><br></pre></td></tr></table></figure>
-
+            <h1 id=""><a href="#" class="headerlink" title=""></a></h1><p>这几天在学web，怕把自己电脑搞坏就打算装个简单的win7，没想到遇到问题也很多</p>
+<h3 id="下载win7系统"><a href="#下载win7系统" class="headerlink" title="下载win7系统"></a>下载win7系统</h3><p>在经典网站 下载 <a class="link"   target="_blank" rel="noopener" href="https://msdn.itellyou.cn/" >MSDN, 我告诉你 - 做一个安静的工具站 (itellyou.cn)<i class="fas fa-external-link-alt"></i></a></p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202211061906809.png"
-                      alt="image-20221106190656746"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202307291741273.png"
+                      alt="image-20230729174117173"
                 ></p>
-<p>设置完成后：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo update-grub</span><br><span class="line">sudo reboot</span><br></pre></td></tr></table></figure>
-
+<blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ed2k://|file|cn_windows_7_ultimate_with_sp1_x64_dvd_u_677408.iso|3420557312|B58548681854236C7939003B583A8078|/</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>使用工具下载就行了 本人使用的是 <a class="link"   target="_blank" rel="noopener" href="https://www.emulefans.com/emule-0-60d/" >eMule Fans 绿色免安装<i class="fas fa-external-link-alt"></i></a>没广告 就是慢点</p>
+<p>下载大概一个半小时</p>
+<h3 id="安装虚拟机"><a href="#安装虚拟机" class="headerlink" title="安装虚拟机"></a>安装虚拟机</h3><p>本人使用VMware 16 pro 。资源相信各位大佬就有法子，不多说了</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202211061908718.png"
-                      alt="image-20221106190846684"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202307291746450.png"
+                      alt="image-20230729174607408"
                 ></p>
-<p>选择 advanced options</p>
+<p>典型安装就行</p>
+<p>选择自己下的光盘文件</p>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202211061910498.png"
-                      alt="image-20221106191003465"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202307291746449.png"
+                      alt="image-20230729174656414"
                 ></p>
-<p>在选择我们需要的内核版本启动</p>
-<h2 id="构建过程"><a href="#构建过程" class="headerlink" title="构建过程"></a>构建过程</h2><p>安装<code>build-essential</code>和<code>dwarfdump</code>(调试文件导出工具)，<code>/boot</code>目录下找到该<code>System.map.xx</code>文件包含系统的符号信息。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install build-essential dwarfdump</span><br><span class="line">cd volatility/tools/linux</span><br><span class="line">make</span><br><span class="line">sudo zip ./volatility/plugins/overlays/linux/Ubuntu.zip ./tools/linux/module.dwarf /boot/System.map-`uname -r`</span><br></pre></td></tr></table></figure>
-
-<p>执行完make后我们将得到一个module.dwarf文件，该文件包含了我们所需的内核调试信息。</p>
-<p>将moudle.dwarf以及system.map文件打包成一个zip文件，放在<code>volatility/plugins/overlays/linux</code>下。</p>
-<p>放在<code>volatility/plugins/overlays/linux</code>下之后查看info</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">xhc@ubuntu:~/Desktop/volatility$ python vol.py --info|grep Linux</span><br><span class="line">Volatility Foundation Volatility Framework 2.6.1</span><br><span class="line">LinuxUbuntux64        - A Profile for Linux Ubuntu x64</span><br><span class="line">LinuxAMD64PagedMemory          - Linux-specific AMD 64-bit address space.</span><br><span class="line">linux_aslr_shift           - Automatically detect the Linux ASLR shift</span><br><span class="line">linux_banner               - Prints the Linux banner information</span><br><span class="line">linux_yarascan             - A shell in the Linux memory image</span><br></pre></td></tr></table></figure>
-
-<p>LinuxUbuntux64 即是我们新加的profile 此时我们就可以开始利用<strong>volatility</strong> 写题了</p>
-<h2 id="volatility取证Linux命令"><a href="#volatility取证Linux命令" class="headerlink" title="volatility取证Linux命令"></a>volatility取证Linux命令</h2><p>vol官方命令文档：<a class="link"   target="_blank" rel="noopener" href="https://github.com/volatilityfoundation/volatility/wiki/Linux-Command-Reference" >https://github.com/volatilityfoundation/volatility/wiki/Linux-Command-Reference<i class="fas fa-external-link-alt"></i></a></p>
-<p>volatility.exe –info|grep linux 可以看到所有命令，具体使用可以翻官方文档</p>
-<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_46081055/article/details/121897319" >(6条消息) 制作Linux内存镜像+制作对应的volatility profile_shu天的博客-CSDN博客_内存镜像<i class="fas fa-external-link-alt"></i></a></p>
-<p><a class="link"   target="_blank" rel="noopener" href="http://tttang.com/archive/1801/" >如何基于volatility2构建“新”版本内核的profile - 跳跳糖 (tttang.com)<i class="fas fa-external-link-alt"></i></a></p>
-<p><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45030965/article/details/124887887" >(6条消息) ubuntu18.04.4更换内核版本_小立爱学习的博客-CSDN博客_ubuntu18.04内核版本<i class="fas fa-external-link-alt"></i></a></p>
-<p><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/dongshibo12/article/details/116157797" >(6条消息) Ubuntu 安装指定内核的方法_dong_shi_bo_的博客-CSDN博客_ubuntu安装内核<i class="fas fa-external-link-alt"></i></a></p>
+<p><strong>这里要特别注意要更改版本</strong></p>
+<p>第一次不注意 一路next 发现用旗舰版ISO安装了个家庭版win7 好多功能都没有 说多了都是泪  找了好久才找到<a class="link"   target="_blank" rel="noopener" href="https://tieba.baidu.com/p/1251975822" >原因<i class="fas fa-external-link-alt"></i></a></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202307291749759.png"
+                      alt="image-20230729174920709"
+                ></p>
+<p>然后就是一路next 慢慢安装了</p>
+<h3 id="安装VM-tools"><a href="#安装VM-tools" class="headerlink" title="安装VM-tools"></a>安装VM-tools</h3><p>系统安装完后 你会发现安装 VM-tools是灰色</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202307291759291.png"
+                      alt="image-20230729175921263"
+                ></p>
+<p>在虚拟机关机状态下 打开设置</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202307291800494.png"
+                      alt="image-20230729180028466"
+                ></p>
+<p>会有个软盘 移除就行了</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202307291801578.png"
+                      alt="image-20230729180127545"
+                ></p>
+<p>移除后 就可以正常使用vm-tools工具了</p>
+<blockquote>
+<p>刚刚出生的win7的桌面上只有回收站 右键个性化-&gt;更改桌面图标 全部勾选上 便于之后的操作</p>
+</blockquote>
+<h3 id="安装vm-tools签名问题"><a href="#安装vm-tools签名问题" class="headerlink" title="安装vm-tools签名问题"></a>安装vm-tools签名问题</h3><p>原因：由于微软更新了驱动程序签名算法，2019年开始弃用SHA1，改用SHA2。最新的VMware Tools驱动程序大概是使用了SHA2算法，而Windows7只支持SHA1导致签名问题无法验证。（ctrl+v）</p>
+<p>解决方案：需要下载<a class="link"   target="_blank" rel="noopener" href="https://www.catalog.update.microsoft.com/Search.aspx?q=kb4474419" >安装补丁kb4474419<i class="fas fa-external-link-alt"></i></a>来支持SHA2算法即可解决问题 </p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202307291809659.png"
+                      alt="image-20230729180904600"
+                ></p>
+<p>问题又来了 IE慢的吓人 还经常加载失败 怎么办补丁放入虚拟机中呢</p>
+<p>可以下载个其他浏览器，或者安装个QQ等等</p>
+<p>想过使用Xftp 但是win7没有ssh服务 需要下载 乐 又回到最初的起点了</p>
+<p>笔者讨厌下载新的应用 就是使用vm自带的 <strong>共享文件夹</strong> 功能 </p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202307291820022.png"
+                      alt="image-20230729182022977"
+                ></p>
+<p>打开后 win7就会出现</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/IpartmentXHC/image/master/202307291821866.png"
+                      alt="image-20230729182138811"
+                ></p>
+<p>就很方便传输文件</p>
+<p>在安装一遍 vm-tools 就可以了 就可以开始利用虚拟机搞事情了</p>
 
         </div>
 
@@ -275,11 +293,11 @@
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li>本文标题：制作Linux内存镜像+制作对应的volatility_profile</li>
+        <li>本文标题：虚拟机装win7系统</li>
         <li>本文作者：萧禾财</li>
-        <li>创建时间：2022-11-06 18:46:02</li>
+        <li>创建时间：2023-07-27 11:35:29</li>
         <li>
-            本文链接：https://ipartmentxhc.github.io/2022/11/06/制作Linux内存镜像-制作对应的volatility-profile/
+            本文链接：https://ipartmentxhc.github.io/2023/07/27/虚拟机装win7系统/
         </li>
         <li>
             版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -298,13 +316,13 @@
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2023/07/27/%E8%99%9A%E6%8B%9F%E6%9C%BA%E8%A3%85win7%E7%B3%BB%E7%BB%9F/"
+                           href="/2023/07/27/%E5%8D%8E%E4%B8%BAnove6%E4%B8%8A%E5%AE%89%E8%A3%85termux%E6%9C%8D%E5%8A%A1%E5%99%A8/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">虚拟机装win7系统</span>
+                                <span class="post-nav-title-item">华为nove6上安装termux服务器</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                         </a>
@@ -314,10 +332,10 @@
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/11/04/%E3%80%8ASoK-Eternal-War-in-Memory%E3%80%8B%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/"
+                           href="/2022/11/06/%E5%88%B6%E4%BD%9CLinux%E5%86%85%E5%AD%98%E9%95%9C%E5%83%8F-%E5%88%B6%E4%BD%9C%E5%AF%B9%E5%BA%94%E7%9A%84volatility-profile/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">《SoK:_Eternal_War_in_Memory》学习总结</span>
+                                <span class="post-nav-title-item">制作Linux内存镜像+制作对应的volatility_profile</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -443,7 +461,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%86%E5%88%ABLinux%E5%86%85%E5%AD%98%E6%98%A0%E5%83%8F%E7%9A%84%E5%86%85%E6%A0%B8%E7%89%88%E6%9C%AC"><span class="nav-text">识别Linux内存映像的内核版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%BF%E6%8D%A2%E5%86%85%E6%A0%B8%E7%89%88%E6%9C%AC"><span class="nav-text">替换内核版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%84%E5%BB%BA%E8%BF%87%E7%A8%8B"><span class="nav-text">构建过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#volatility%E5%8F%96%E8%AF%81Linux%E5%91%BD%E4%BB%A4"><span class="nav-text">volatility取证Linux命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0"><span class="nav-text">参考文章</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text"></span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BDwin7%E7%B3%BB%E7%BB%9F"><span class="nav-text">下载win7系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="nav-text">安装虚拟机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85VM-tools"><span class="nav-text">安装VM-tools</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85vm-tools%E7%AD%BE%E5%90%8D%E9%97%AE%E9%A2%98"><span class="nav-text">安装vm-tools签名问题</span></a></li></ol></li></ol></li></ol>
     </div>
 </div>
         </aside>

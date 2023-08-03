@@ -139,6 +139,229 @@
                 
 
                 <h3 class="home-article-title">
+                    <a href="/2022/07/12/wireshark/">
+                        wireshark
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        写这题需要wireshark工具
+
+Wireshark · Go Deep.
+
+用wireshark打开 抓取POST的包
+
+
+找到包后 右键追踪http流
+
+因为题目要求我们找密码 
+
+
+直接搜索 password 或者 眼力好一眼看见
+
+flag...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue Jul 12 2022 13:21:17 GMT+0800">2022-07-12</span></span>
+        
+        
+    </div>
+
+    <a href="/2022/07/12/wireshark/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2022/07/12/%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84%E7%A7%98%E5%AF%86/">
+                        文件中的秘密
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        一张 路飞 的图片
+
+各种方法都试了一下 没有发现什么
+最后在图片属性 详细信息中找到flag
+
+
+flag{870c5a72806115cb5439345d8b014396}
+
+
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue Jul 12 2022 13:12:14 GMT+0800">2022-07-12</span></span>
+        
+        
+    </div>
+
+    <a href="/2022/07/12/%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84%E7%A7%98%E5%AF%86/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2022/07/12/%E4%B9%8C%E9%95%87%E5%B3%B0%E4%BC%9A%E7%A7%8D%E5%9B%BE/">
+                        乌镇峰会种图
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        是一张图片 
+用stegsolve 打开 并没有发现什么
+用binwalk 探查 没有发现什么
+用010打开
+发现flag就藏在最后
+
+
+flag{97314e7864a8f62627b26f3f998c37f1}
+
+
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue Jul 12 2022 13:01:09 GMT+0800">2022-07-12</span></span>
+        
+        
+    </div>
+
+    <a href="/2022/07/12/%E4%B9%8C%E9%95%87%E5%B3%B0%E4%BC%9A%E7%A7%8D%E5%9B%BE/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2022/07/12/%E5%9F%BA%E7%A1%80%E7%A0%B4%E8%A7%A3/">
+                        基础破解
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        题目有提示 四位数字加密
+
+用ARCHPR暴力破解一下
+
+解压得flag.txt
+
+base64加密
+
+得flag
+
+flag{70354300a5100ba78068805661b93a5c}
+
+最后分享一张图片
+
+
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue Jul 12 2022 12:51:51 GMT+0800">2022-07-12</span></span>
+        
+        
+    </div>
+
+    <a href="/2022/07/12/%E5%9F%BA%E7%A1%80%E7%A0%B4%E8%A7%A3/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2022/07/12/N%E7%A7%8D%E6%96%B9%E6%B3%95%E8%A7%A3%E5%86%B3/">
+                        N种方法解决
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        解压发现是exe文件 运行不了
+用exeinfo PE侦测一下
+
+base64&#x2F;32 加密文件 用010打开
+
+将base64加密的密文复制
+1iVBORw0KGgoAAAANSUhEUgAAAIUAAACFCAYAAAB12js8AAAA...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue Jul 12 2022 12:40:30 GMT+0800">2022-07-12</span></span>
+        
+        
+    </div>
+
+    <a href="/2022/07/12/N%E7%A7%8D%E6%96%B9%E6%B3%95%E8%A7%A3%E5%86%B3/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2022/07/12/typora-picgo-github%E4%B8%89%E8%80%85%E8%81%94%E5%8A%A8%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E4%B8%8A%E4%BC%A0/">
+                        typora-picgo-github三者联动实现自动上传图片
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        利用github存储代码和图片 typora编写blog picgo上传图片终于经过俩天的踩坑 终于建立一套方便的博客上传系统
+一、GitHub图床仓库的建立和配置1、创建GitHub图床仓库
+创建GitHub账号 不会的话 上网搜 教程很多
+
+新建...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue Jul 12 2022 10:23:48 GMT+0800">2022-07-12</span></span>
+        
+        
+    </div>
+
+    <a href="/2022/07/12/typora-picgo-github%E4%B8%89%E8%80%85%E8%81%94%E5%8A%A8%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E4%B8%8A%E4%BC%A0/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                <h3 class="home-article-title">
                     <a href="/2022/07/11/%E4%BD%A0%E7%AB%9F%E7%84%B6%E8%B5%B6%E6%88%91%E8%B5%B0/">
                         你竟然赶我走
                     </a>
